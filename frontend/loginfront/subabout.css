@@ -1,0 +1,583 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+body{
+  background-color: #F8F8FF;
+}
+
+
+@font-face{
+  font-family: it1;
+  src: url(/fonts/Didot_Regular.ttf);
+}
+
+@font-face{
+  font-family: it2;
+  src: url(/fonts/Futur.ttf);
+}
+
+@font-face{
+  font-family: it3;
+  src: url(/fonts/FuturL.ttf);
+}
+
+@font-face{
+  font-family: it4;
+  src: url(/fonts/AvantGardeLT-ExtraLight.otf);
+}
+
+
+
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "Sidebar Sidebar Sidebar"
+  "Content-a Content-a Content-a"
+  "Content-b Content-b Content-b"
+  "Content-c Content-c Content-c"
+  "Footer Footer Footer";
+}
+.Header {
+  grid-area: Header;
+}
+
+  .Sidebar {
+    grid-area: Sidebar;
+  }
+  .Content-a {
+    grid-area: Content-a;
+  }
+
+  .Content-b {
+    grid-area: Content-b;
+  }
+  .Content-c {
+    grid-area: Content-c;
+  }
+  .Footer {
+    grid-area: Footer;
+  }
+
+
+
+  @media screen and (min-width: 768px) {
+
+    .grid-container {
+      display: grid;
+      height: 100%;
+      grid-template-columns:100px 1fr 1fr 100px;
+      grid-template-rows: auto;
+      grid-template-areas:
+      "Header Header Header Header"
+      "Sidebar Sidebar Sidebar Sidebar"
+      ". Content-a Content-a ."
+      ". Content-a Content-a ."
+      "Footer Footer Footer Footer";
+    }
+
+
+
+    .Header-title{
+      position: fixed;
+      top: 50px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 22;
+      min-height: 55px;
+      background: #ADD8E6;
+      transition-duration: 0.35s all ease;
+      display: block;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 0px 6px #000;
+      transition: 0.35s all ease;
+    }
+
+    .nav-second{
+      position: fixed;
+      top: 0px;
+      width: 100%;
+      height: 50px;
+      background:#3B9FCF;
+    }
+
+    .scrolled .progress-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    }
+
+    .scrolled .progress-bar {
+    position: absolute;
+    bottom: 0;
+    height: 8px;
+    background: #4db1e2;
+    width: 0%;
+    }
+
+    .nav-second div{
+      float: left;
+    }
+
+    .nav-second button{
+      float: left;
+      border-radius: 30px;
+      text-align: center;
+      width: 200px;
+      height: 35px;
+      float: left;
+      border-style: solid 1px transparent;
+      margin-top:7px;
+      cursor: pointer;
+      background-color: #efefef;
+      transition: 0.4s;
+      margin-left: 30px;
+    }
+
+    .nav-second button:hover{
+      background-color: #caebf2;
+      border-color: transparent;
+    }
+
+    .nav-second-left h3 {
+      font-size: 25px;
+      margin-top: 10px;
+      margin-right: 100px;
+      margin-left: 300px;
+      font-family: it3;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    .nav-second-right{
+      float: right;
+      margin-right: 10px;
+    }
+
+    .nav-second-right h3,.nav-second-right a{
+      float: left;
+    }
+
+    .nav-second-right h3{
+      font-size: 20px;
+      margin-top: 12px;
+      font-family: it3;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    .Header-title h1{
+      float: left;
+      margin-top: 20px;
+      margin-left: 90px;
+      font-size: 55px;
+      font-family: it4;
+      font-weight: 900;
+      transition: 0.35s all ease;
+      display: block;
+    }
+
+    .Header-title h1 a{
+      text-decoration: none;
+      color: #4db1e2;
+    }
+
+    .Header-title ul{
+      list-style-type: none;
+      float: right;
+      margin-top: 20px;
+      margin-right: 90px;
+      font-size: 20px;
+      display: block;
+      transition: 0.35s all ease;
+
+    }
+
+    .progress-container {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    }
+
+    .progress-bar {
+    height: 8px;
+    background: #4db1e2;
+    width: 0%;
+    }
+
+    .scrolled {
+      height: 10px;
+      background: #ADD8E6;
+      transition-duration: 0.35s all ease;
+      display: block;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 0px 6px #000;
+    }
+    .scrolled ul {
+      margin:0px;
+      padding: 0px;
+      transition: 0.2s linear;
+      display: block;
+    }
+    .scrolled li,.scrolled li a  {
+      color: black;
+      display: block;
+      font-weight: 900;
+      transition: 0.2s all ease-in-out;
+    }
+
+    .scrolled li:hover,.scrolled li a:hover  {
+        color: #ff383f;
+    }
+
+    .scrolled h1{
+      margin-top:5px;
+      padding: 0px;
+      transition: 0.35s all ease;
+      display: block;
+      font-size: 35px;
+    }
+
+    .scrolled h1 a{
+      color: #4db1e2;
+    }
+
+    .Header-title ul li:nth-child(-n+7){
+      float: left;
+      margin-right: 30px;
+      font-size: 15px;
+      font-family: it4;
+      font-weight: 500;
+      margin-top: 20px;
+      cursor: pointer;
+      color: white;
+      display: block;
+
+    }
+
+    .Header-title ul li:nth-child(-n+7):hover{
+
+      color: #ff383f;
+    }
+
+    .Header-title ul li:nth-child(n+8){
+      float: left;
+      margin-right: 30px;
+      font-size: 15px;
+      font-family: it1;
+      font-weight: 600;
+      display: block;
+
+
+    }
+
+    .Header-title ul li a{
+      text-decoration: none;
+      color: black;
+      font-weight: 900;
+    }
+
+    .Header-title ul li a:hover{
+    color: #ff383f;
+  }
+
+    .Header-title ul li button{
+      text-align: center;
+      width: 150px;
+      height: 40px;
+      float: left;
+      border-style: solid 1px transparent;
+      margin-top:7px;
+      cursor: pointer;
+      background-color: #efefef;
+      transition: 0.4s;
+
+    }
+
+    .Header-title ul li button:hover{
+      background-color: #caebf2;
+      border-color: transparent;
+    }
+
+
+    .Header-title ul li button img{
+      float: left;
+      margin-left: 15px;
+      width: 20px;
+      height: 15px;
+    }
+
+
+    .Sidebar{
+      width: 100%;
+      height: 250px;
+      background: url(image/blog.jpg);
+      object-fit: fill;
+      background-position: center;
+      filter: brightness(0.5);
+    }
+
+
+    .Content-a {
+      width: 100%;
+      height: auto;
+      background:inherit;
+    }
+
+    .nested-grid {
+      display: grid;
+      height: 100%;
+      height: 2500px;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+      grid-template-rows: 500px;
+      grid-template-areas:
+      "nes-a nes-a nes-b nes-b"
+      "nes-c nes-c nes-d nes-d"
+      "nes-e nes-e nes-f nes-f"
+      "nes-g nes-g nes-h nes-h"
+      "nes-i nes-i nes-j nes-j"
+    }
+
+    .nes-a {
+      grid-area: nes-a;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-a img{
+      height: 100%;
+      width: 400px;
+      padding-left: 85px;
+    }
+
+    .nes-b {
+      grid-area: nes-b;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-c {
+      grid-area: nes-c;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-d {
+      grid-area: nes-d;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-d img{
+      height: 100%;
+      width: 400px;
+      padding-left: 85px;
+    }
+
+    .nes-e {
+      grid-area: nes-e;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-e img{
+      height: 100%;
+      width: 400px;
+      padding-left: 85px;
+    }
+
+    .nes-f {
+      grid-area: nes-f;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-g {
+      grid-area: nes-g;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-h {
+      grid-area: nes-h;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-h img{
+      height: 100%;
+      width: 400px;
+      padding-left: 85px;
+    }
+
+    .nes-i {
+      grid-area: nes-i;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+    .nes-i img{
+      height: 100%;
+      width: 400px;
+      padding-left: 85px;
+    }
+
+    .nes-j {
+      grid-area: nes-j;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+    }
+
+
+    .Content-a h3,.Content-a h2{
+      font-family: it4;
+    }
+
+    .Content-a h1{
+      font-family: it4;
+      font-size: 50px;
+      padding-left: 40%;
+      padding-top: 30px;
+      letter-spacing: 2px;
+    }
+
+    .underline {
+      border-bottom: 2px solid currentColor;
+    }
+
+    .Content-a h3{
+      font-size: 16px;
+      margin-top: 20px;
+      text-transform: uppercase;
+
+    }
+
+
+
+    .Content-a h3 a{
+      text-decoration: none;
+    }
+
+    .Content-a h2{
+      font-size: 30px;
+      letter-spacing: 3px;
+      padding-top:35px;
+      padding-left:5px;
+      text-transform: uppercase;
+    }
+
+
+
+
+
+
+
+    .Footer{
+      height: 210px;
+      background:#213540;
+    }
+
+    .upper-footer{
+      height: 90px;
+      width: 100%;
+      background: #d0d0d0;
+    }
+
+    .upper-footer a{
+      margin-left: 50%;
+
+    }
+
+    .iconic{
+      background: url(image/facebook.svg) no-repeat;
+      width:30px; /* Width of new image */
+      height: 30px; /* Height of new image */
+      margin-top:30px;
+
+    }
+
+
+    .footer-1{
+      width: 100%;
+      height: 100%;
+      background:#213540;
+    }
+    .left-footer{
+
+    }
+    .right-footer{
+
+    }
+
+    .left-footer,.middle-footer,.right-footer{
+      width: 33.33%;
+      height: 100%;
+      float: left;
+      font-family: it4;
+    }
+
+    .middle-footer h2{
+      text-align: center;
+      font-size: 30px;
+      margin-top: 20px;
+    }
+
+    .right-footer h2{
+      text-align: center;
+      font-size: 30px;
+      margin-top: 20px;
+    }
+
+
+    .middle-footer p{
+      font-size: 15px;
+      text-indent: 30px;
+      margin-top: 30px;
+      margin-left: 90px;
+    }
+
+    .left-footer h2{
+      text-align: center;
+      font-size: 30px;
+      margin-top: 20px;
+    }
+
+    .left-footer p{
+      font-size: 15px;
+      text-indent: 30px;
+      margin-top: 20px;
+    }
+
+    .footer-1{
+      color:white;
+    }
+
+    .footer-2{
+      height: 10%;
+      background:#1c2d36;
+      text-align: center;
+    }
+
+    .footer-2 h3{
+      color:white;
+
+    }
