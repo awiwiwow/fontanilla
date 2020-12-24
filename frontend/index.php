@@ -636,7 +636,7 @@ $userClass = new userClass();
               <li>
                 <a href="">
                   <div>
-                    <h3>Langkaan Branch</h3>
+                    <h3>Langkaan</h3>
                     <p>#45 governor's drive</p>
                   </div>
                 </a>
@@ -644,7 +644,7 @@ $userClass = new userClass();
               <li>
                 <a href="">
                   <div>
-                    <h3>Binakayan Branch:</h3>
+                    <h3>Binakayan</h3>
                     <p>tirona road, binakayan</p>
                   </div>
                 </a>
