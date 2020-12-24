@@ -20,6 +20,9 @@ $userClass = new userClass();
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALxQM48TTVVN6qnqC-0ktt7g2lnmSoUSA&callback=initMap">
+    </script>
 
   </head>
   <body>
@@ -583,41 +586,70 @@ $userClass = new userClass();
 </section>
 
 <section class="location d-flex flex-column">
-  <div class="container">
-    <h2>Branches</h2>
-    <ul class="grid d-flex justify-content-between">
-      <li class="row row-cols-2 mt-5">
-          <div class="col">
-            <h3>Location 1</h3>
-            <p>Our main branch is located in 45 Governors Drive Langkaan,Dasmarinas Cavite(2nd Floor of Sustamina Meatshop)  </p>
-              <!-- <a href="https://www.google.com/maps/dir//Fontanilla+-+Halili,+Gov.+Drive,+Langkaan+1,+Dasmari%C3%B1as,+4114+Cavite/@14.2940578,120.936066,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3397d579a979f277:0x11d15c88f9f91169!2m2!1d120.938469!2d14.293872"><button>Get Directions</button></a> -->
-            <img src="image/location11.jpg" alt="">
-          </div>
-          <div class="col">
-            <img src="image/location1.jpg" alt="">
-          </div>
+  <div class="container-fluid">
+    <ul class="grid d-flex">
+      <li id="map" class="map">
       </li>
-      <li class="row row-cols-2 mt-5">
-        <div class="col">
-          <h3>Location 2</h3>
-            <p>Our main branch is located in 45 Governors Drive Langkaan,Dasmarinas Cavite(2nd Floor of Sustamina Meatshop)  </p>
-              <!-- <a href="https://www.google.com/maps/dir//Fontanilla+-+Halili,+Gov.+Drive,+Langkaan+1,+Dasmari%C3%B1as,+4114+Cavite/@14.2940578,120.936066,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3397d579a979f277:0x11d15c88f9f91169!2m2!1d120.938469!2d14.293872"><button>Get Directions</button></a> -->
-            <img src="image/location11.jpg" alt="">
-          </div>
-          <div class="col">
-            <img src="image/location1.jpg" alt="">
-          </div>
-      </li>
-      <li class="row row-cols-2 mt-5">
-        <div class="col">
-            <h3>Location 3</h3>
-            <p>Our main branch is located in 45 Governors Drive Langkaan,Dasmarinas Cavite(2nd Floor of Sustamina Meatshop)  </p>
-              <!-- <a href="https://www.google.com/maps/dir//Fontanilla+-+Halili,+Gov.+Drive,+Langkaan+1,+Dasmari%C3%B1as,+4114+Cavite/@14.2940578,120.936066,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3397d579a979f277:0x11d15c88f9f91169!2m2!1d120.938469!2d14.293872"><button>Get Directions</button></a> -->
-            <img src="image/location11.jpg" alt="">
-        </div>
-        <div class="col">
-            <img src="image/location1.jpg" alt="">
-        </div>
+          <script type="text/javascript">
+              var locations = [
+                ['Dasmarinas Branch', 14.3259859, 120.935851],
+                ['Binakayan Branch', 14.4490886, 120.9209076],
+                ['Langkaan Branch', 14.2938631, 120.9383363]
+              ];
+
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: new google.maps.LatLng(14.375699,120.935791,12),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              });
+
+              var infowindow = new google.maps.InfoWindow();
+
+              var marker, i;
+
+              for (i = 0; i < locations.length; i++) {  
+                marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                  map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                  }
+                })(marker, i));
+              }
+        </script>
+
+      <li class="city">
+            <ul class="p-5">
+            <h2>Branches</h2>
+              <li class="roam">
+                <a href="">
+                  <div>
+                    <h3>Dasmarinas</h3>
+                    <p>2nd floor cm plaza building</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div>
+                    <h3>Langkaan Branch</h3>
+                    <p>#45 governor's drive</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div>
+                    <h3>Binakayan Branch:</h3>
+                    <p>tirona road, binakayan</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
       </li>
     </ul>
   </div>
