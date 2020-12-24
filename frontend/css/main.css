@@ -802,11 +802,65 @@ transition: 0.10s all ease;
 footer{
   background: rgba(0,0,0,.8);
   color: #fff;
+  border-bottom: 8px solid #4db1e2;
 }
 
-footer .row h3{
-  margin: auto;
+.footer-top{
+  margin-bottom: 30px;
 }
+
+.footer-top a:hover{
+  font-weight: bold;
+}
+
+.footer-left{
+  width:80%;
+}
+
+.footer-left h2{
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 55px 0 30px 55px;
+}
+
+.footer-left li{
+  padding: 5px 0 5px 55px;
+}
+
+.footer-left li a{
+  text-decoration: none;
+  color:#fff;
+}
+
+.footer-left li p{
+  margin-top: 30px;
+}
+
+#footer-caps{
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.footer-right{
+  width:20%;
+}
+
+.footer-right ul{
+  list-style: none;
+  padding: 100px 0;
+}
+
+.footer-right li{
+  text-transform: capitalize;
+  padding:3px 0;
+}
+
+.footer-right li a{
+  color: #fff;
+  text-decoration: none;
+}
+
+/*  */
 
 .services-a{
     border-width: thin;

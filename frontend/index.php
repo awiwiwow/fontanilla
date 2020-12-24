@@ -624,29 +624,29 @@ $userClass = new userClass();
 </section>
 
 <footer class="d-flex flex-column">
-  <div class="container">
-    <ul class="grid d-flex-column">
-      <li class="row row-cols-2">
-        <div class="col">
-          <h2>Visit Our Three Location:</h2>
-          <a href="location.php"> <p>Binakayan Branch: TIRONA ROAD, BINAKAYAN </p> </a>
-          <a href="location2.php"> <p>Langkaan Branch: #45 GOVERNOR'S DRIVE </p> </a>
-          <a href="location3.php"> <p>Dasma-Bayan Branch: 2ND FLOOR CM PLAZA BUILDING </p> </a>
+  <div class="container-fluid">
+    <ul class="grid">
+      <li class="footer-top d-flex flex-row">
+        <div class="footer-left">
+          <h2>Visit Our Location</h2>
+          <ul>
+            <li><a href="location.php">Binakayan Branch: TIRONA ROAD, BINAKAYAN</a></li>
+            <li><a href="location2.php">Langkaan Branch: #45 GOVERNOR'S DRIVE</a></li>
+            <li><a href="location3.php">Dasma-Bayan Branch: 2ND FLOOR CM PLAZA BUILDING</a></li>
+          </ul>
+          <ul>
+            <li id="footer-caps"><p>We’re open Monday to Saturday, come rain or shine, from 09:00 to 17:00.</p></li>
+            <li id="footer-caps">Drop us an email:</li>
+            <li>fontanilla@gmail.com</li>
+          </ul>
         </div>
-        <div class="col">
-          <h2>Business Hours</h2>
-              <p>Monday</p><p>9:00 AM -5:00 PM</p>
-              <p>Tuesday</p><p>9:00 AM -5:00 PM</p>
-              <p>Wednesday</p><p>9:00 AM -5:00 PM</p>
-              <p>Thursday</p><p>9:00 AM -5:00 PM</p>
-              <p>Friday</p><p>9:00 AM -5:00 PM</p>
-              <p>Saturday</p><p>9:00 AM -5:00 PM</p>
-              <p>Sunday</p><p>9:00 AM -5:00 PM</p>
-              <p>Note: (Only Dasma-Bayan branch is open until Sunday)</p>
+        <div class="footer-right">
+          <ul>
+            <li><a href="">about us</a></li>
+            <li><a href="">our services</a></li>
+            <li> <a href="">contact us</a></li>
+          </ul>  
         </div>
-      </li>
-      <li class="row">
-        <h3>© Fontanilla Halili Dental Clinic</h3>
       </li>
     </ul>
   </div>
