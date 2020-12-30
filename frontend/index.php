@@ -11,9 +11,10 @@ $userClass = new userClass();
     <meta charset="utf-8">
     <title>Fontanilla-Halili Dental Clinic</title>
 
-    <link rel="shortcut icon" href="image/FontanillaIcon.png" />
+    <link rel="shortcut icon" href="image/icon/FontanillaIcon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    
     
     <link rel="stylesheet" href="css/icon.css">
     <link href="css/main.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
@@ -27,635 +28,552 @@ $userClass = new userClass();
   </head>
   <body>
 
-<nav class="container-fluid">
-  <div class="Header-title">
-    <div class="nav-second">
-      <div class="nav-second-left">
-        <h3>Call Us
-         (<?php
-            $una = "SELECT cont_num from update_char";
-            $result = mysqli_query($conn, $una);
-            if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            echo  $row["cont_num"];}}
-          ?>)
-        </h3>
-      </div>
-      <div class="nav-second-right">
-        <h3>
-          <?php
-            $una = "SELECT header from update_char";
-            $result = mysqli_query($conn, $una);
-            if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            echo  $row["header"];}}
-          ?>
-        </h3>
-        <a href="register-login.php"><button>Register/Login</button></a>
-      </div>
-    </div>
-    <h1><a href="index.php">
-      <span style="padding-right:10px; padding-top: 3px; display:inline-block;">
-      <img style="width:30px;height:30px;" src="image/FontanillaIcon.png"></img></span>Fontanilla Halili Dental</a></h1>
-      <img src="image/FontanillaIcon2.png" alt="" class="header-logo">
-      <ul>
-        <li><a href="index.php" id="activetitle">Home</a></l>
-        <li><a href="about.php">About Us</a></li>
-        <li><a href="services.php">Services</a></li>
-        <li><a href="location.php">Branches</a></li>
-        <li><a href="contactus.php">Contact Us</a></l>
-      </ul>
-      <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-      </div>
-  </div>
-</nav>
-    <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
-<div class="Sidebar">
-  <div class="slide-1 mySlides">
+<!-- <nav class="navbar notif-nav">
+  <p class="ml-auto"><i class="fas fa-phone-alt mr-2"></i>
     <?php
-      $result = mysqli_query($conn, "SELECT * FROM img_home
-      WHERE id = 8");
-      while ($row = mysqli_fetch_array($result))
-      {
-        echo "<img src='home/".$row['image']."' >";
-      }
+      $una = "SELECT cont_num from update_char";
+      $result = mysqli_query($conn, $una);
+      if (mysqli_num_rows($result) > 0) {
+      while($row = mysqli_fetch_assoc($result)) {
+      echo  $row["cont_num"];}}
     ?>
-    <div id="slidingintro1">
-      <h1>
-        <?php
-          $una = "SELECT slider_title from update_char";
-          $result = mysqli_query($conn, $una);
-          if (mysqli_num_rows($result) > 0) {
-          while($row = mysqli_fetch_assoc($result)) {
-          echo  $row["slider_title"];}}
-        ?>
-      </h1>
-      <p>
-        <?php
-          $una = "SELECT slider_firstcont from update_char";
-          $result = mysqli_query($conn, $una);
-          if (mysqli_num_rows($result) > 0) {
-          while($row = mysqli_fetch_assoc($result)) {
-          echo  $row["slider_firstcont"];}}
-        ?>
-      </p>
-      <p>
-        <?php
-          $una = "SELECT slider_secondcont from update_char";
-          $result = mysqli_query($conn, $una);
-          if (mysqli_num_rows($result) > 0) {
-          while($row = mysqli_fetch_assoc($result)) {
-          echo  $row["slider_secondcont"];}}
-        ?>
-      </p>
-        <a href="register-login.php"><button class="button1">Sign Up</button></a>
-    </div>
-  </div>
-      <div class="slide-1 mySlides">
-
-        <?php
-        $result = mysqli_query($conn, "SELECT * FROM img_home
-        WHERE id = 9");
-
-
-            while ($row = mysqli_fetch_array($result))
-            {
-
-                echo "<img src='home/".$row['image']."' >";
-
-
-            }?>
-
-        <div id="slidingintro2">
-          <h1>
-          <?php
-            $una = "SELECT slider2_title from update_char";
-            $result = mysqli_query($conn, $una);
-            if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            echo  $row["slider2_title"];}}?>
-            </h1>
-          <p>
-          <?php
-            $una = "SELECT slider2_firstcont from update_char";
-            $result = mysqli_query($conn, $una);
-            if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            echo  $row["slider2_firstcont"];}}?>
-            </p>
-          <p>
-          <?php
-            $una = "SELECT slider2_secondcont from update_char";
-            $result = mysqli_query($conn, $una);
-            if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            echo  $row["slider2_secondcont"];}}?>
-            </p>
-          <a href="services.php" class="button1">View More</a>
-        </div>
+  </p>
+</nav> -->
+<div class="container-fluid main-section">
+  <div class="row">
+    <div class="left-nav shadow col-2 px-1 position-fixed" id="sticky-sidebar">
+      <div id="banner">
+        <a href="">
+          <img class="img-fluid" src="image/icon/FontanillaLogo.png" alt="">
+        </a>
       </div>
-      <div class="slide-1 mySlides">
-              <?php
-        $result = mysqli_query($conn, "SELECT * FROM img_home
-        WHERE id = 10");
-
-
-            while ($row = mysqli_fetch_array($result))
-            {
-
-                echo "<img src='home/".$row['image']."' >";
-
-
-            }?>
-        <div id="slidingintro3">
-          <h1>
-          <?php
-            $una = "SELECT slider3_title from update_char";
-            $result = mysqli_query($conn, $una);
-            if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            echo  $row["slider3_title"];}}?>
-            </h1>
-          <p>
-          <?php
-            $una = "SELECT slider3_cont from update_char";
-            $result = mysqli_query($conn, $una);
-            if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            echo  $row["slider3_cont"];}}?>
-            </p>
-        <a href="smilegallery.php" class="button1">View More</a>
-        </div>
-      </div>
-
-      <button class="slide-button-left" onclick="plusDivs(-1)">&#10094;</button>
-      <button class="slide-button-right" onclick="plusDivs(1)">&#10095;</button>
-
-    </div>
-
-<section class="first-content d-flex flex-column">
-  <div class="container">
-    <ul class="grid d-flex justify-content-center">
-        <li class="content-box">
-        <img src="image/icons/question.svg" alt="question">
-          <h3>
-          <?php
-              $una = "SELECT infobox from update_char";
-              $result = mysqli_query($conn, $una);
-              if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) {
-              echo  $row["infobox"];}}?>
-              </h3>
-          <p>
-          <?php
-              $una = "SELECT infobox_cont from update_char";
-              $result = mysqli_query($conn, $una);
-              if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) {
-              echo  $row["infobox_cont"];}}?>
-              </p>
+      <ul>
+        <li>
+          <a href="">Home</a>
         </li>
-        <li class="content-box">
-        <img src="image/icons/meeting.svg" alt="meeting">
-          <h3>
-          <?php
-              $una = "SELECT infobox2 from update_char";
-              $result = mysqli_query($conn, $una);
-              if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) {
-              echo  $row["infobox2"];}}?>
-              </h3>
-          <p>
-          <?php
-              $una = "SELECT infobox2_cont from update_char";
-              $result = mysqli_query($conn, $una);
-              if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) {
-              echo  $row["infobox2_cont"];}}?>
-              </p>
+        <li>
+          <a href="">Services</a>
         </li>
-        <li class="content-box">
-        <img src="image/icons/handshake.svg" alt="handshake">
-          <h3>
-          <?php
-              $una = "SELECT infobox3 from update_char";
-              $result = mysqli_query($conn, $una);
-              if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) {
-              echo  $row["infobox3"];}}?>
-              </h3>
-          <p>
-          <?php
-              $una = "SELECT infobox3_cont from update_char";
-              $result = mysqli_query($conn, $una);
-              if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) {
-              echo  $row["infobox3_cont"];}}?>
-              </p>
+        <li>
+          <a href="">Locations</a>
         </li>
-    </ul>
-  </div>
-</section>
-
-<section class="services d-flex flex-column">
- <div class="container">
-    <div class="service-con">
-      <div class="service-con-title">
-        <h2>Services</h2>
-        <a href="services.html"><button>Read more ...</button></a>
-      </div>
-
-      <ul class="grid d-flex justify-content-between">
-        <li class="content">
-          <img src="image/icons/p1.png" alt="">
-          <h3>
-              <?php
-                $una = "SELECT serve_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve_title"];}}
-              ?>
-          </h3>
-          <p>
-              <?php
-                $una = "SELECT serve_cont from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve_cont"];}}
-              ?>
-          </p>
-        </li>
-        <li class="content">
-          <img src="image/icons/p5.png" alt="">
-          <h3>
-              <?php
-                $una = "SELECT serve2_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve2_title"];}}
-              ?>
-          </h3>
-          <p>
-            <?php
-                $una = "SELECT serve2_cont from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve2_cont"];}}
-            ?>
-          </p>
-        </li>
-        <li class="content">
-          <img src="image/icons/p4.png" alt="">
-          <h3>
-              <?php
-                $una = "SELECT serve3_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve3_title"];}}
-              ?>
-          </h3>
-          <p>
-              <?php
-                $una = "SELECT serve3_cont from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve3_cont"];}}
-              ?>
-          </p>
-        </li>
-        <li class="content">
-          <img src="image/icons/p3.png" alt="">
-          <h3>
-              <?php
-                $una = "SELECT serve4_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve4_title"];}}
-              ?>
-          </h3>
-          <p>
-              <?php
-                $una = "SELECT serve4_cont from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve4_cont"];}}
-              ?>
-          </p>
-        </li>
-        <li class="content">
-          <img src="image/icons/p2.png" alt="">
-          <h3>
-              <?php
-                $una = "SELECT serve5_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve5_title"];}}
-              ?>
-          </h3>
-          <p>
-              <?php
-                $una = "SELECT serve5_cont from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve5_cont"];}}
-              ?>
-          </p>
-        </li>
-        <li class="content">
-          <img src="image/icons/p6.png" alt="">
-          <h3>
-              <?php
-                $una = "SELECT serve6_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve6_title"];}}
-              ?>
-          </h3>
-          <p>
-              <?php
-                $una = "SELECT serve6_cont from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["serve6_cont"];}}
-              ?>
-          </p>
+        <li>
+          <a href="">About Us</a>
         </li>
       </ul>
-  </div>
-</section>
-
-<section class="dentist d-flex flex-column">
-  <div class="container">
-      <h2>Dentists</h2>
-      <div class="grid d-flex justify-content-between">
-        <div class="card">
-          <?php
-            $result = mysqli_query($conn, "SELECT * FROM img_home
-            WHERE id = 1");
-            while ($row = mysqli_fetch_array($result))
-            {
-              echo "<img class='card-img-top' src='home/".$row['image']."' >";
-            }
-          ?>
-          <div class="card-body">
-            <h4>
-              <?php
-                $una = "SELECT doc_name from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc_name"];}}
-              ?>
-            </h4>
-            <p>
-              <?php
-                $una = "SELECT doc_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc_title"];}}
-              ?>
-            </p>
+    </div>
+    <div class="col offset-2 p-0" id="main">
+            <div class="moving-mouse-holder">
+          <div class="mouse">
+            <div class="mouse-button">&nbsp;</div>
           </div>
         </div>
-        <div class="card">
-          <?php
-            $result = mysqli_query($conn, "SELECT * FROM img_home
-            WHERE id = 3");
-            while ($row = mysqli_fetch_array($result))
-            {
-              echo "<img class='card-img-top' src='home/".$row['image']."' >";
-            }
-          ?>
-          <div class="card-body">
-            <h4>
-              <?php
-                $una = "SELECT doc2_name from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc2_name"];}}
-              ?>
-            </h4>
-            <p>
-              <?php
-                $una = "SELECT doc2_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc2_title"];}}
-              ?>
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <?php
-            $result = mysqli_query($conn, "SELECT * FROM img_home
-            WHERE id = 4");
-            while ($row = mysqli_fetch_array($result))
-            {
-              echo "<img class='card-img-top' src='home/".$row['image']."' >";
-            }
-          ?>
-          <div class="card-body">
-            <h4>
-              <?php
-                $una = "SELECT doc3_name from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc3_name"];}}
-              ?>
-            </h4>
-            <p>
-              <?php
-                $una = "SELECT doc3_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc3_title"];}}
-              ?>
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <?php
-            $result = mysqli_query($conn, "SELECT * FROM img_home
-            WHERE id = 5");
-            while ($row = mysqli_fetch_array($result))
-            {
-              echo "<img class='card-img-top' src='home/".$row['image']."' >";
-            }
-          ?>
-          <div class="card-body">
-            <h4>
-              <?php
-                $una = "SELECT doc4_name from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc4_name"];}}
-              ?>
-            </h4>
-            <p>
-              <?php
-                $una = "SELECT doc4_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc4_title"];}}
-              ?>
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <?php
-            $result = mysqli_query($conn, "SELECT * FROM img_home
-            WHERE id = 6");
-            while ($row = mysqli_fetch_array($result))
-            {
-              echo "<img class='card-img-top' src='home/".$row['image']."' >";
-            }
-          ?>
-          <div class="card-body">
-            <h4>
-              <?php
-                $una = "SELECT doc5_name from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc5_name"];}}
-              ?>
-            </h4>
-            <p>
-              <?php
-                $una = "SELECT doc5_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc5_title"];}}
-              ?>
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <?php
-            $result = mysqli_query($conn, "SELECT * FROM img_home
-            WHERE id = 7");
-            while ($row = mysqli_fetch_array($result))
-            {
-              echo "<img class='card-img-top' src='home/".$row['image']."' >";
-            }
-          ?>
-          <div class="card-body">
-            <h4>
-              <?php
-                $una = "SELECT doc6_name from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc6_name"];}}
-              ?>
-            </h4>
-            <p>
-              <?php
-                $una = "SELECT doc6_title from update_char";
-                $result = mysqli_query($conn, $una);
-                if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                echo  $row["doc6_title"];}}
-              ?>
-            </p>
-          </div>
-        </div>
-      </div>
-  </div>
-</section>
-
-<section class="location d-flex flex-column">
-  <div class="container-fluid">
-    <ul class="grid d-flex">
-      <li id="map" class="map">
-      </li>
-          <script type="text/javascript">
-              var locations = [
-                ['Dasmarinas Branch', 14.3259859, 120.935851],
-                ['Binakayan Branch', 14.4490886, 120.9209076],
-                ['Langkaan Branch', 14.2938631, 120.9383363]
-              ];
-
-              var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: new google.maps.LatLng(14.375699,120.935791,12),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-              });
-
-              var infowindow = new google.maps.InfoWindow();
-
-              var marker, i;
-
-              for (i = 0; i < locations.length; i++) {  
-                marker = new google.maps.Marker({
-                  position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                  map: map
-                });
-
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                  return function() {
-                    infowindow.setContent(locations[i][0]);
-                    infowindow.open(map, marker);
-                  }
-                })(marker, i));
-              }
-        </script>
-
-      <li class="city">
-            <ul class="p-5">
-            <h2>Branches</h2>
-              <li class="roam">
-                <a href="">
-                  <div>
-                    <h3>Dasmarinas</h3>
-                    <p>2nd floor cm plaza building</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <div>
-                    <h3>Langkaan</h3>
-                    <p>#45 governor's drive</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <div>
-                    <h3>Binakayan</h3>
-                    <p>tirona road, binakayan</p>
-                  </div>
-                </a>
-              </li>
+          <div class="vNav">
+            <ul class="vNav">
+                  <li>
+                      <a href="#section01">
+                          <div class="label">Section01</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#section02">
+                          <div class="label">Section02</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#section03">
+                          <div class="label">Section03</div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#section04">
+                          <div class="label">Section04</div>
+                      </a>
+                  </li>
             </ul>
-      </li>
-    </ul>
-  </div>
-</section>
+          </div>
+          <section id="section01" class="section sidebar d-flex flex-column par">
+            <div class="container-fluid sidebar-con d-flex">
+              <div class="left-sidebar d-flex">
+                <div>
+                  <h1>Look forward to the dentist</h1>
+                  <h2>Dental done differently.</h2>
+                </div>
+              </div>
+              <div id="carouselExampleIndicators" class="carousel slide right-sidebar" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 8");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img class='d-block w-100' src='home/".$row['image']."' >";
+                      }
+                    ?>
+                  </div>
+                  <div class="carousel-item">
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 9");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img class='d-block w-100'src='home/".$row['image']."' >";
+                      }
+                    ?>
+                  </div>
+                  <div class="carousel-item">
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 10");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img class='d-block w-100' src='home/".$row['image']."' >";
+                      }
+                    ?>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>             
+          </section>
+          <div>
+          <!-- <section class="section first-content d-flex flex-column">
+            <div class="container">
+              <ul class="grid d-flex justify-content-center appearOnScroll">
+                  <li class="content-box">
+                  <img src="image/icon/question.svg" alt="question">
+                    <h3>
+                    <?php
+                        $una = "SELECT infobox from update_char";
+                        $result = mysqli_query($conn, $una);
+                        if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                        echo  $row["infobox"];}}?>
+                        </h3>
+                    <p>
+                    <?php
+                        $una = "SELECT infobox_cont from update_char";
+                        $result = mysqli_query($conn, $una);
+                        if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                        echo  $row["infobox_cont"];}}?>
+                        </p>
+                  </li>
+                  <li class="content-box">
+                  <img src="image/icon/meeting.svg" alt="meeting">
+                    <h3>
+                    <?php
+                        $una = "SELECT infobox2 from update_char";
+                        $result = mysqli_query($conn, $una);
+                        if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                        echo  $row["infobox2"];}}?>
+                        </h3>
+                    <p>
+                    <?php
+                        $una = "SELECT infobox2_cont from update_char";
+                        $result = mysqli_query($conn, $una);
+                        if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                        echo  $row["infobox2_cont"];}}?>
+                        </p>
+                  </li>
+                  <li class="content-box">
+                  <img src="image/icon/handshake.svg" alt="handshake">
+                    <h3>
+                    <?php
+                        $una = "SELECT infobox3 from update_char";
+                        $result = mysqli_query($conn, $una);
+                        if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                        echo  $row["infobox3"];}}?>
+                        </h3>
+                    <p>
+                    <?php
+                        $una = "SELECT infobox3_cont from update_char";
+                        $result = mysqli_query($conn, $una);
+                        if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                        echo  $row["infobox3_cont"];}}?>
+                        </p>
+                  </li>
+              </ul>
+            </div>
+          </section> -->
+          
+          <section id="section02" class="section services d-flex flex-column par">
+            <div class="container">
+              <div class="service-con">
+                <div class="service-con-title">
+                  <h2>Services</h2>
+                  <h3>Everything You Need for Happy, Healthy Teeth</h3>
+                </div>
+                <ul>
+                  <li class="service-container row">
+                    <div class="left-services-cont col-4">
+                      <h1  class="parallaxScroll">Health</h1>
+                      <button>Learn More</button>
+                    </div>
+                    <div class="right-services-cont col-8">
+                       <div id="first-service">
+                          <h1>General Dentistry</h1>
+                          <ul>
+                            <li>Routine Cleanings</li>
+                            <li>Cavity Fillings</li>
+                            <li>Root Canals for Severe Decay</li>
+                          </ul>
+                       </div>
+                    </div>
+                  </li>
+                  <li class="service-container row">
+                    <div class="right-services-cont col-8">
+                       <div id="first-service">
+                          <h1>Cosmetic Dentistry</h1>
+                          <ul>
+                            <li>Cosmetic Veneers</li>
+                            <li>Professional Teeth Whitening</li>
+                            <li>Invasalign for Adult and Teens</li>
+                          </ul>
+                       </div>
+                    </div>
+                    <div class="left-services-cont col-4">
+                      <h1  class="parallaxScroll">Beauty</h1>
+                      <button>Learn More</button>
+                    </div>
+                  </li>
+                  <li class="service-container row">
+                    <div class="left-services-cont col-4">
+                      <h1  class="parallaxScroll">Restoration</h1>
+                      <button>Learn More</button>
+                    </div>
+                    <div class="right-services-cont col-8">
+                       <div id="first-service">
+                          <h1>Restorative Dentistry</h1>
+                          <ul>
+                            <li>Crowns to Protect Weak Teeth</li>
+                            <li>Dental Implants for Missing Teeth</li>
+                            <li>Modern Dental Bridges</li>
+                          </ul>
+                       </div>
+                    </div>
+                  </li>
+                </ul>
+                <!-- <ul class="grid d-flex justify-content-between">
+                  <li class="content appearOnScroll">
+                    <img src="image/icon/p1.png" alt="">
+                    <h3>
+                        <?php
+                          $una = "SELECT serve_title from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve_title"];}}
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                          $una = "SELECT serve_cont from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve_cont"];}}
+                        ?>
+                    </p>
+                  </li>
+                  <li class="content appearOnScroll">
+                    <img src="image/icon/p5.png" alt="">
+                    <h3>
+                        <?php
+                          $una = "SELECT serve2_title from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve2_title"];}}
+                        ?>
+                    </h3>
+                    <p>
+                      <?php
+                          $una = "SELECT serve2_cont from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve2_cont"];}}
+                      ?>
+                    </p>
+                  </li>
+                  <li class="content appearOnScroll">
+                    <img src="image/icon/p4.png" alt="">
+                    <h3>
+                        <?php
+                          $una = "SELECT serve3_title from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve3_title"];}}
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                          $una = "SELECT serve3_cont from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve3_cont"];}}
+                        ?>
+                    </p>
+                  </li>
+                  <li class="content appearOnScroll">
+                    <img src="image/icon/p3.png" alt="">
+                    <h3>
+                        <?php
+                          $una = "SELECT serve4_title from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve4_title"];}}
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                          $una = "SELECT serve4_cont from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve4_cont"];}}
+                        ?>
+                    </p>
+                  </li>
+                  <li class="content appearOnScroll">
+                    <img src="image/icon/p2.png" alt="">
+                    <h3>
+                        <?php
+                          $una = "SELECT serve5_title from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve5_title"];}}
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                          $una = "SELECT serve5_cont from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve5_cont"];}}
+                        ?>
+                    </p>
+                  </li>
+                  <li class="content appearOnScroll">
+                    <img src="image/icon/p6.png" alt="">
+                    <h3>
+                        <?php
+                          $una = "SELECT serve6_title from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve6_title"];}}
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                          $una = "SELECT serve6_cont from update_char";
+                          $result = mysqli_query($conn, $una);
+                          if (mysqli_num_rows($result) > 0) {
+                          while($row = mysqli_fetch_assoc($result)) {
+                          echo  $row["serve6_cont"];}}
+                        ?>
+                    </p>
+                  </li>
+                </ul> -->
+            </div>
+          </section>
+          
+          <section id="section03" class="section dentist d-flex flex-column par">
+            <div class="container-fluid">
+              <h2>Dentists</h2>
+              <!-- <div class="grid-container">
+                <div class="grid-content">
+                  <div class="gridLayer">
+                    <div class="gridBlock"></div>
+                  </div>
+                  <div class="gridLayer">
+                    <div class="gridBlock"></div>
+                  </div>
+                  <div class="gridLayer">
+                    <div class="gridBlock"></div>
+                  </div>
+                  <div class="gridLayer centerPiece">
+                    <div class="gridBlock centerBlock"></div>
+                  </div>
+                  <div class="gridLayer">
+                    <div class="gridBlock"><a href="https://greensock.com" target="_blank"></a></div>
+                  </div>
+                  <div class="gridLayer">
+                    <div class="gridBlock"></div>
+                  </div>
+                  <div class="gridLayer">
+                    <div class="gridBlock"></div>
+                  </div>
+                  <div class="gridLayer">
+                    <div class="gridBlock"></div>
+                  </div>
+                  <div class="gridLayer">
+                    <div class="gridBlock"></div>
+                  </div>
+                </div>
+              </div> -->
+                <div class="d-flex img-grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+                  <div class="col-lg-4 col-md-12 img-cont">
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 3");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img id='second-img' class='img-fluid grid-item' src='home/".$row['image']."' >";
+                      }
+                    ?>
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 4");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img id='second-img' class='img-fluid grid-item' src='home/".$row['image']."' >";
+                      }
+                    ?>
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 1");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img id='first-img' class='img-fluid grid-item' src='home/".$row['image']."' >";
+                      }
+                    ?>
+                    
+                  </div>
+                  <div class="col-lg-4 col-md-6 img-cont">
+                  <img id="fifth-img" class='img-fluid grid-item' src="image/img-con-1.JPG" alt="">
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 5");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img id='third-img' class='img-fluid grid-item' src='home/".$row['image']."' >";
+                      }
+                    ?>
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 6");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img id='fourth-img' class='img-fluid grid-item' src='home/".$row['image']."' >";
+                      }
+                    ?>
+                  </div>
+                  <div class="col-lg-4 col-md-6 img-cont">
+                  
+                    <?php
+                      $result = mysqli_query($conn, "SELECT * FROM img_home
+                      WHERE id = 7");
+                      while ($row = mysqli_fetch_array($result))
+                      {
+                        echo "<img class='img-fluid grid-item' src='home/".$row['image']."' >";
+                      }
+                    ?>
 
-<footer class="d-flex flex-column">
+                    
+                  </div>
+                </div>
+            </div>
+          </section>
+          
+          <section id="section04" class="section location d-flex flex-column par">
+            <div class="container-fluid">
+              <ul class="grid d-flex">
+                <li id="map" class="map">
+                </li>
+                    <script type="text/javascript">
+                        var locations = [
+                          ['Dasmarinas Branch', 14.3259859, 120.935851],
+                          ['Binakayan Branch', 14.4490886, 120.9209076],
+                          ['Langkaan Branch', 14.2938631, 120.9383363]
+                        ];
+
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          zoom: 12,
+                          center: new google.maps.LatLng(14.375699,120.935791,12),
+                          mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+
+                        var infowindow = new google.maps.InfoWindow();
+
+                        var marker, i;
+
+                        for (i = 0; i < locations.length; i++) {  
+                          marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map
+                          });
+
+                          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
+                              infowindow.setContent(locations[i][0]);
+                              infowindow.open(map, marker);
+                            }
+                          })(marker, i));
+                        }
+                  </script>
+
+                <li class="city">
+                      <ul class="p-5">
+                      <h2>Branches</h2>
+                        <li class="appearOnScroll">
+                          <a href="">
+                            <div>
+                              <h3>Dasmarinas</h3>
+                              <p>2nd floor cm plaza building</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="appearOnScroll">
+                          <a href="">
+                            <div>
+                              <h3>Langkaan</h3>
+                              <p>#45 governor's drive</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="appearOnScroll">
+                          <a href="">
+                            <div>
+                              <h3>Binakayan</h3>
+                              <p>tirona road, binakayan</p>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                </li>
+              </ul>
+            </div>
+          </section>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<a href="#" id="back-to-top" title="Back to top">&uarr;</a> -->
+
+
+
+<!-- <footer class="d-flex flex-column">
   <div class="container-fluid">
     <ul class="grid">
       <li class="footer-top d-flex flex-row">
@@ -682,10 +600,14 @@ $userClass = new userClass();
       </li>
     </ul>
   </div>
-</footer>
+</footer> -->
+
+<script src="js/gsap.min.js"></script>
 <script src="js/myjavascript.js"></script>
+<!-- <script src="js/img-grid.js"></script> -->
+<script src="js/scrolled.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
+<script src="https://kit.fontawesome.com/f5b85ab0cc.js" crossorigin="anonymous"></script>
   </body>
 </html>
