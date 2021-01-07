@@ -1,6 +1,0 @@
-"Appointment#","Patient_id","Branch","Sched_date","Sched_time","Reason","Status","Dentist"
-"A-79","P-24","Dasma-Bayan","02-October-2018","9am-10am","Consultation","cancelled",""
-"A-80","P-25","Binakayan","02-October-2018","9am-10am","Consultation","done","Rishelle Anne Fontanilla-Halili"
-"A-81","P-25","Binakayan","02-October-2018","9am-10am","Consultation","done","Rochelle Delos Reyes"
-"A-82","P-26","Binakayan","02-October-2018","10am-11am","Consultation","pending",""
-"A-83","P-24","Dasma-Bayan","17-October-2018","1pm-2pm","Consultation","pending",""
