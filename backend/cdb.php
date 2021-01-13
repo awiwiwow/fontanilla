@@ -8,7 +8,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "fontanil_itsp1";
+$dbname = "fontanilla";
 
 
 
