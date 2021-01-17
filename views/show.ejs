@@ -1,0 +1,18 @@
+<%- include ('partials/header'); -%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4 class="lead"><%= user.firstName +" "+ user.lastName %></h4>
+            <div class="caption"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+            <div class="list-group">
+                <li class="list-group-item"><a class="btn btn-primary btn-lg" href="/">Go back to homepage</a></li>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h3>Appointments</h3>
+        </div>
+    </div>
+</div>
+
+
+<%- include ('partials/footer'); -%>

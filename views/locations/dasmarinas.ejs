@@ -1,0 +1,49 @@
+<%- include ('../partials/header'); -%>
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+          <div class="locations-dasmarinas-left">
+            <h1>Dasmarinas Branch</h1>
+
+            <h2>Address:</h2>
+            <h3>#45 Governor's Drive Langkaan 1, Dasmarinas, Cavite</h3>
+            
+            <h2>Doctors on duty:</h2>
+            
+            <h3>Dr. Rishelle Anne Fontanilla-Halili</h3>
+            <h5>COSMETIC & GENERAL DENTIST</h5>
+            <p>Monday - Saturday : 9AM - 1PM</p>
+
+            
+            <h3>Dr. Claudette Bacayon</h3>
+            <h5>COSMETIC & GENERAL DENTIST</h5>
+            <p>Monday - Saturday : 1PM - 5PM</p>
+
+            <button>
+              Make an Appointment now
+            </button>
+
+          </div>
+        </div>
+        <div  class="col-7">
+          <div class="locations-map" id="dasmarinas-map"></div>
+          <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALxQM48TTVVN6qnqC-0ktt7g2lnmSoUSA&">
+          </script>
+         <script>
+            // Initialize and add the map
+            function initMap() {
+              // The location of Uluru
+              var uluru = {lat: 14.2938631, lng: 120.9383363};
+              // The map, centered at Uluru
+              var map = new google.maps.Map(
+                document.getElementById('dasmarinas-map'), {zoom: 19, center: uluru});
+                // The marker, positioned at Uluru
+                var marker = new google.maps.Marker({position: uluru, map: map});
+              }
+        </script>
+           
+        </div>
+    </div>
+</div>
+<%- include ('../partials/footer'); -%>

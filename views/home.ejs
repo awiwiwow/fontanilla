@@ -9,34 +9,46 @@
         </div>
         <ul>
           <li>
-            <a id="active-link" href="">Home</a>
+            <a href="">Home</a>
           </li>
           <li>
-            <a href="">Services</a>
+            <button class="sidebar-btn" type="button" data-toggle="modal" data-target="#serviceModal" data-backdrop="false">
+              Services
+            </button>
           </li>
           <li>
-            <a href="">Locations</a>
+            <button class="sidebar-btn" type="button" data-toggle="modal" data-target="#locationModal" data-backdrop="false">
+              Location
+            </button>
           </li>
           <li>
-            <a href="">About Us</a>
+            <button class="sidebar-btn" type="button" data-toggle="modal" data-target="#aboutModal" data-backdrop="false">
+              About Us
+            </button>
           </li>
         </ul>
         <ul class="nav-button">
-          <li>
-            <a href="">
+          <% if(!currentUser){ %>
+            <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">
               <button>Login</button>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <button>Book Now</button>
-            </a>
-          </li>
-          <li>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  data-backdrop="false">
-              Launch demo modal
-            </button>
-          </li>
+              </a>
+            </li>
+            <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">
+              <button>Sign Up</button> 
+              </a>
+            </li>
+        <% } else { %>
+            <li>
+              <a href="/users/<%= currentUser.id %>">
+                <button>Profile</button>
+              </a>
+            </li>
+            <li>
+              <a href="/logout">
+                <button>Logout</button>
+              </a>
+            </li>
+        <% } %>
         </ul>
       </div>
       <div class="col offset-2 p-0" id="main">
@@ -104,18 +116,26 @@
             </div>             
           </section>
 
-          <!-- Button trigger modal  -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+          <!-- Services Modal  -->
+            <!-- <div class="modal fade" id="serviceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
                 <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
                     <div class="modal-content-full-width modal-content ">
+                      <div class="modal-header row">
+                        <div class="col-1">
+                          <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="font-size: 1.3em;" aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+                          </button> 
+                        </div>
+                        <div class="col-11">
+                          <h2>Dental Services</h2>
+                        </div>
+                      </div>
                         <div class="modal-body">
-                        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                        <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
-                        </button> 
+                        <%- include ('./services'); -%>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
           
           <section id="section02" class="section services d-flex flex-column par">
             <div class="container-fluid">
@@ -188,6 +208,27 @@
                 </div>
             </div>
           </section>
+
+          <!-- Location Modal  -->
+          <!-- <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+            <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+                <div class="modal-content-full-width modal-content ">
+                  <div class="modal-header row">
+                    <div class="col-1">
+                      <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="font-size: 1.3em;" aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+                      </button> 
+                    </div>
+                    <div class="col-11">
+                      <h2>Locations</h2>
+                    </div>
+                  </div>
+                    <div class="modal-body">
+                    <%- include ('./location'); -%>
+                    </div>
+                </div>
+            </div>
+          </div> -->
           
           <section id="section03" class="section dentist par">
             <div class="container-fluid">
@@ -224,12 +265,36 @@
                 </div>
             </div>
           </section>
+
+          <!-- About Modal  -->
+          <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+            <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+                <div class="modal-content-full-width modal-content ">
+                  <div class="modal-header row">
+                    <div class="col-1">
+                      <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="font-size: 1.3em;" aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+                      </button> 
+                    </div>
+                    <div class="col-11">
+                      <h2>Dental Services</h2>
+                    </div>
+                  </div>
+                    <div class="modal-body">
+                    <%- include ('./about'); -%>
+                    </div>
+                </div>
+            </div>
+        </div>
            
           <section id="section04" class="section location d-flex flex-column par">
             <div class="container-fluid location-con">
               <ul class="grid-sec d-flex">
                 <li id="map" class="map">
                 </li>
+                <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALxQM48TTVVN6qnqC-0ktt7g2lnmSoUSA&">
+              </script>
                     <script type="text/javascript">
                         var locations = [
                           ['Dasmarinas Branch', 14.3259859, 120.935851],
@@ -261,6 +326,7 @@
                           })(marker, i));
                         }
                   </script>
+                    
 
                 <li class="city">
                       <ul class="p-5">
@@ -297,4 +363,5 @@
     </div>
     </div>
 </div>
+
 <%- include ('partials/footer'); -%>

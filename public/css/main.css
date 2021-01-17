@@ -106,9 +106,6 @@ section:not(.first-content):nth-child(even) {
   border-color: #C9553E;
 }
 
-.vNav a .label{
-}
-
 /* Mouse Scroll Indicator */
 
 .moving-mouse-holder {
@@ -150,6 +147,7 @@ section:not(.first-content):nth-child(even) {
 /* SideNav */
 
 .left-nav{
+  z-index: 9999;
   height: 100vh;
 }
 
@@ -179,8 +177,16 @@ section:not(.first-content):nth-child(even) {
   color: #000;
 }
 
-.left-nav #active-link{
-  color:#000;
+.left-nav .sidebar-btn{
+  background: none;
+  color: #9abadd;
+  font-weight: 600;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.left-nav .sidebar-btn:hover{
+  color: #000;
 }
 
 .nav-button li{
@@ -574,6 +580,16 @@ section:not(.first-content):nth-child(even) {
 
 /* Modal */
 
+.sidebar.modal-open{
+  height: 200vh;
+  overflow-y: hidden;
+}
+
+.modal-header h2{
+  margin-left: 30%;
+  display: inline;
+}
+
 .modal-dialog-full-width {
   width: 85% !important;
   height: 100% !important;
@@ -598,3 +614,41 @@ section:not(.first-content):nth-child(even) {
   border-top: 1px solid #9ea2a2 !important;
 }
 
+
+/* Modal - Services */
+
+.services-containers{
+  margin:50px auto;
+}
+
+/* Modal - Locations */
+
+.locations-sidebar-container{
+  margin: 70px 10px 0px 30px;
+}
+
+.locations-sidebar-container li{
+  margin: 15px auto;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.locations-dasmarinas-left {
+  margin: 30px 20px;
+  height: 100%;
+}
+
+.locations-map{
+  width: 100%;
+  height: 600px;
+  margin:30px auto;
+  background: red;
+}
+
+.locations-dasmarinas-left h2{
+  margin: 35px auto;
+}
+
+.locations-dasmarinas-left h4{
+  font-style: italic;
+}
